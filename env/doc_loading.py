@@ -31,4 +31,3 @@ def load_documents():
     
     return cleaned_documents
 
-documents = load_documents()

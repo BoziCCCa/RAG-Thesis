@@ -1,0 +1,9 @@
+.App-header {
+  /* Optional: control header height */
+  flex-shrink: 0;
+}
+
+.MainPage {
+  flex-grow: 1;
+  height: 100%;
+}

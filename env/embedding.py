@@ -1,21 +1,21 @@
 import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_cohere import CohereEmbeddings
-from langchain_openai import OpenAIEmbeddings
+
 from dotenv import load_dotenv
-from doc_loading import load_documents
 from pinecone_init import add_vectors_to_database, get_existing_vector_ids
-from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
+
 load_dotenv()
 
-documents = load_documents()
-
+from langchain_openai import OpenAIEmbeddings
 embeddings_model = OpenAIEmbeddings(
     model="text-embedding-3-small",
     api_key=os.getenv("OPANAI_API_KEY")
 )
 
-def split_documents(documents, chunk_size=200, chunk_overlap=40):
+def get_embeddings(content):
+    return embeddings_model.embed_query(content)
+
+def split_documents(documents, chunk_size=300, chunk_overlap=100):
     text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
         chunk_size=chunk_size, 
         chunk_overlap=chunk_overlap,
@@ -45,8 +45,6 @@ def calculate_chunk_ids(docs):
 
     return chunk_ids
 
-def get_embeddings(content):
-    return embeddings_model.embed_query(content)
 
 def embed_and_index_documents(documents):
     docs = split_documents(documents)
@@ -58,16 +56,11 @@ def embed_and_index_documents(documents):
     for i, doc in enumerate(docs):
         embedding = get_embeddings(doc.page_content)
         embeddings.append(embedding)
-        
-
         doc.metadata["page_content"] = doc.page_content
         vectors.append((chunk_ids[i], embedding, doc.metadata))
-
     
     existing_ids = get_existing_vector_ids()
-    
     new_vectors = [(id, embedding, metadata) for id, embedding, metadata in vectors if id not in existing_ids]
-    
     if new_vectors:
         print(f"Adding {len(new_vectors)} new vectors to Pinecone.")
         
@@ -76,4 +69,4 @@ def embed_and_index_documents(documents):
     else:
         print("No new vectors to add.")
 
-embed_and_index_documents(documents)
+

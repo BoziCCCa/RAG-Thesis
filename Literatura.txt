@@ -1,0 +1,69 @@
+Literatura:
+
+[1] What are LLMs - https://www.ibm.com/topics/large-language-models
+
+[2] A Practical Approach to Retrieval Augmented Generation Systems - https://mallahyari.github.io/rag-ebook/intro.html 
+
+[3] Attention is all you need - https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
+
+[4] How Transformers Work: A Detailed Exploration of Transformer Architecture - https://www.datacamp.com/tutorial/how-transformers-work
+
+[5] What are large language models(LLMs)? - https://www.elastic.co/what-is/large-language-models
+
+[6] What is a transformer model? - https://www.ibm.com/topics/transformer-model
+
+[7] Information Retrieval(IR) - https://courses.cs.washington.edu/courses/cse454/05sp/slides/03-ir.pdf
+
+[8] Mastering RAG: Advanced Methods to Enhance Retrieval-Augmented Generation - https://medium.com/@samarrana407/mastering-rag-advanced-methods-to-enhance-retrieval-augmented-generation-4b611f6ca99a
+
+[9] Navigating the Basics of RAG Indexing — Part 1 for Beginners - https://medium.com/@gokulpalanisamy/navigating-the-basics-of-rag-indexing-part-1-for-beginners-a07fda1aa8c3
+
+[10] Query Transformations - https://blog.langchain.dev/query-transformations/
+
+[11] Query Construction - https://blog.langchain.dev/query-construction/
+
+[12] RAG from scratch - https://github.com/langchain-ai/rag-from-scratch/tree/main
+
+[13] Machine Learning :: Cosine Similarity for Vector Space Models (Part III) - https://blog.christianperone.com/2013/09/machine-learning-cosine-similarity-for-vector-space-models-part-iii/
+
+[14] Learn Generative AI RAG from Scratch with Lance Martin's 14 steps - https://www.linkedin.com/pulse/learn-generative-ai-rag-from-scratch-lance-martins-14-steps-klxve/
+
+[15] RAG Techniques: Multi Query - https://dev.to/shawonmajid/rag-techniques-multi-query-2p5h
+
+[16] Advanced RAG: Decomposition Technique in LangChain - https://medium.com/@kbdhunga/advanced-rag-decomposition-technique-in-langchain-c0959541cfec
+
+[17] Reciprocal Rank Fusion (RRF) explained in 4 mins — How to score results form multiple retrieval methods in RAG -  https://medium.com/@devalshah1619/mathematical-intuition-behind-reciprocal-rank-fusion-rrf-explained-in-2-mins-002df0cc5e2a
+
+[18] Query Translation for RAG (Retrieval Augmented Generation)Applications - https://raghunaathan.medium.com/query-translation-for-rag-retrieval-augmented-generation-applications-46d74bff8f07
+
+[19] Advanced RAG — Improving retrieval using Hypothetical Document Embeddings(HyDE) - https://medium.aiplanet.com/advanced-rag-improving-retrieval-using-hypothetical-document-embeddings-hyde-1421a8ec075a
+
+[20] HyDE — Hypothetical Document Embeddings - https://medium.com/@dineshkumarjaju/hyde-hypothetical-document-embeddings-9b3fbfca8d2d
+
+[21] Indexing and Routing Strategies in Retrieval-Augmented Generation (RAG) Chatbots - https://blog.gopenai.com/indexing-and-routing-strategies-in-retrieval-augmented-generation-rag-chatbots-06271908e9f6
+
+[22] Chunking Strategies Optimization for Retrieval Augmented Generation (RAG) in the Context of Generative AI - https://medium.com/@thallyscostalat/chunking-strategies-optimization-for-retrieval-augmented-generation-rag-in-the-context-of-e47cc949931d
+
+[23] Indexing and Routing Strategies in Retrieval-Augmented Generation (RAG) Chatbots - https://blog.gopenai.com/indexing-and-routing-strategies-in-retrieval-augmented-generation-rag-chatbots-06271908e9f6
+
+[24] Five Levels of Chunking Strategies in RAG| Notes from Greg’s Video - https://medium.com/@anuragmishra_27746/five-levels-of-chunking-strategies-in-rag-notes-from-gregs-video-7b735895694d
+
+[25] Dense X Retrieval: What Retrieval Granularity Should We Use? - https://arxiv.org/pdf/2312.06648.pdf
+
+[26] ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT - https://doi.org/10.48550/arXiv.2004.12832
+
+[27] RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval - https://doi.org/10.48550/arXiv.2401.18059
+
+[28] Corrective Retrieval Augmented Generation - https://doi.org/10.48550/arXiv.2401.15884
+
+[29] LLM, Transformer, RAG AI: Mastering Large Language Models, Transformer Models, and Retrieval-Augmented Generation (RAG) Technology February 5, 2024 by Et Tu Code
+
+[30] Retrieval-Augmented Generation (RAG) Empowering Large Language Models (LLMs) by Dr. Ray Islam
+
+[31] What is Flask Python - https://pythonbasics.org/what-is-flask-python/
+
+[32] LangChain Documentation - https://python.langchain.com/v0.1/docs
+
+[33] PineCone Documentation - https://docs.pinecone.io/
+
+[34] Flask dokumentacija https://flask.palletsprojects.com/ 

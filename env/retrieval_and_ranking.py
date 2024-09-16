@@ -1,13 +1,13 @@
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from embedding import get_embeddings
-from pinecone_init import index
 from langchain.load import dumps, loads
 from embedding import embeddings_model
+from pinecone_init import initialize_pinecone
 
 
 def split_queries(queries):
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=100, 
+        chunk_size=50, 
         chunk_overlap=20,
         is_separator_regex=False,
     )
@@ -22,10 +22,11 @@ def retrieve_documents(queries):
     query_embeddings = embeddings_model.embed_documents(query_splits)
 
     results = []
+    index=initialize_pinecone()
     for query_embedding in query_embeddings:
         response = index.query(
             vector=query_embedding, 
-            top_k=3,
+            top_k=5,
             include_metadata=True
         )
         results.append(response["matches"])
