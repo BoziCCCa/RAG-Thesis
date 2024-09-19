@@ -1,6 +1,5 @@
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from embedding import get_embeddings
-from langchain.load import dumps, loads
 from embedding import embeddings_model
 from pinecone_init import initialize_pinecone
 
@@ -31,6 +30,8 @@ def retrieve_documents(queries):
         )
         results.append(response["matches"])
     return results
+
+from langchain.load import dumps, loads
 
 def reciprocal_rank_fusion(results: list[list[dict]], k=60):
     fused_scores = {}

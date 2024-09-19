@@ -29,6 +29,7 @@ def ask_question():
         return jsonify({"error": "No question provided"}), 400
     
     answer = rag_fusion_pipeline(query)  
+    print("Answer: ",answer)
     return jsonify({"answer": answer})
 
 if __name__ == '__main__':

@@ -9,14 +9,12 @@ const MainPage = () => {
   const [messages, setMessages] = useState([]);
 
   const handleSend = async (messageText) => {
-    // Add the user's message to the messages list
     const userMessage = (
       <UserMessage key={messages.length} text={messageText} />
     );
     const updatedMessages = [...messages, userMessage];
     setMessages(updatedMessages);
 
-    // Add the bot's message to the messages list
     const botMessage = (
       <ChatbotMessage
         key={updatedMessages.length}
@@ -31,6 +29,8 @@ const MainPage = () => {
     const response = await axios.post("http://localhost:5000/ask-question", {
       question: question,
     });
+
+    console.log(response.data);
 
     return response.data.answer;
   };

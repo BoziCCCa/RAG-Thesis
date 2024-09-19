@@ -8,14 +8,12 @@ from langchain_openai import ChatOpenAI
 load_dotenv()
 llm = ChatOpenAI(model_name="gpt-4o-mini-2024-07-18", temperature=0, api_key=os.getenv("OPENAI_API_KEY"))
 
-# Prompt for summarizing each document individually
 map_prompt = ChatPromptTemplate.from_template("""
 Write a concise summary for the following document: {doc}.
 The summary should contain crucial information regarding this question about board game rules: {question}.
 """)
 map_chain = map_prompt | llm
 
-# Prompt for reducing summaries into a final summary
 reduce_prompt = ChatPromptTemplate.from_template("""
 The following is a set of summaries:
 {docs}
@@ -36,44 +34,36 @@ generate_queries_chain = rag_fusion_prompt | llm | StrOutputParser()
 
 
 generation_prompt = ChatPromptTemplate.from_template("""
-Answer the question based only on the following context:
+Answer the question based only on the following context, be precise and answer only what is asked:
 {context}
 
 Question: {question}
 """)
 generation_chain = generation_prompt | llm | StrOutputParser()
 
-# Main RAG Fusion pipeline function
+
 def rag_fusion_pipeline(question):
-    # Step 1: Generate multiple search queries based on the question
+    
     generated_queries = generate_queries_chain.invoke({"question": question})
     generated_queries_list = generated_queries.split("\n")
     generated_queries_list = [query.strip() for query in generated_queries_list if query.strip()]
 
-    # Step 2: Retrieve documents using the generated queries
     retrieved_docs = retrieve_documents(generated_queries_list)
 
-    # Step 3: Rank the retrieved documents using reciprocal rank fusion
     ranked_docs = reciprocal_rank_fusion(retrieved_docs)
-
-    # Step 4: Extract content from the top-ranked documents
     ranked_docs_content = [doc[0]['page_content'] for doc in ranked_docs]
     top_ranked_docs_content = ranked_docs_content[0:5]
 
-    # Step 5: Map step - generate summaries for each document
     mapped_summaries = []
     for doc in top_ranked_docs_content:
         summary = map_chain.invoke({"doc": doc, "question": question})
-        # Extract the 'content' field from AIMessage objects
         mapped_summaries.append(summary.content)
 
-    # Step 6: Reduce step - consolidate summaries into a final summary
     result_summary = reduce_chain.invoke({
         "docs": "\n".join(mapped_summaries),
         "question": question
     })
 
-    # Step 7: Generate the final answer based on the consolidated summary
     final_answer = generation_chain.invoke({
         "context": result_summary,
         "question": question
